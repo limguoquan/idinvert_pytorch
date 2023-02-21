@@ -26,9 +26,9 @@ def parse_args():
   parser.add_argument('--model_name', type=str, default='styleganinv_ffhq256', help='Name of the GAN model.')
   # parser.add_argument('image_list', type=str,
   #                     help='List of images to invert.')
-  parser.add_argument('--img_edited_output_dir', type=str, default='/home/FYP/limg0038/ials/invertedImages/img_edited')
+  parser.add_argument('--img_inv_output_dir', type=str, default='/home/FYP/limg0038/ials/invertedImages/img_inv')
   parser.add_argument('--img_original_output_dir', type=str, default='/home/FYP/limg0038/ials/invertedImages/img_original')
-  parser.add_argument('--latent_code_edited_output_dir', type=str, default='/home/FYP/limg0038/ials/invertedImages/latent_code_edited')
+  parser.add_argument('--latent_code_inv_output_dir', type=str, default='/home/FYP/limg0038/ials/invertedImages/latent_code_inv')
   parser.add_argument('--image_path', type=str, default='/home/FYP/limg0038/faces_dataset_small')
   parser.add_argument('--json_path', type=str, default='/home/FYP/limg0038/json/')
   parser.add_argument('--learning_rate', type=float, default=0.01,
@@ -122,8 +122,8 @@ def main():
     # latent_codes.append(code)
     save_image(f'{args.img_original_output_dir}/{image_name}_ori.png', image)
     # save_image(f'{args.output_dir}/{image_name}_enc.png', viz_results[1])
-    save_image(f'{args.img_edited_output_dir}/{image_name}_inv.png', viz_results[-1])
-    np.save(f"{args.latent_code_edited_output_dir}/{image_name}.npy", code)
+    save_image(f'{args.img_inv_output_dir}/{image_name}_inv.png', viz_results[-1])
+    np.save(f"{args.latent_code_inv_output_dir}/{image_name}.npy", code)
 
     # visualizer.set_cell(img_idx, 0, text=image_name)
     # visualizer.set_cell(img_idx, 1, image=image)
